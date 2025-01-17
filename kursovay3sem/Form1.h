@@ -195,6 +195,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		this->button3->Visible = true;
 		this->label2->Text = L"Режим разработчика";
 		this->label2->ForeColor = System::Drawing::SystemColors::MenuHighlight;
+
 	}
 	else {
 		this->label4->Visible = true;
