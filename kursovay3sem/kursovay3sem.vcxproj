@@ -132,7 +132,9 @@
   <ItemGroup>
     <ClInclude Include="Cafe.h" />
     <ClInclude Include="Chef.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Dessert.h" />
+    <ClInclude Include="DiscountCard.h" />
     <ClInclude Include="Dish.h" />
     <ClInclude Include="Drink.h" />
     <ClInclude Include="Employee.h" />
@@ -142,6 +144,7 @@
     <ClInclude Include="HotDish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderFunc.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Waiter.h" />
@@ -150,8 +153,10 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Cafe.cpp" />
     <ClCompile Include="Chef.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Dessert.cpp" />
+    <ClCompile Include="DiscountCard.cpp" />
     <ClCompile Include="Dish.cpp" />
     <ClCompile Include="Drink.cpp" />
     <ClCompile Include="Employee.cpp" />
@@ -159,6 +164,7 @@
     <ClCompile Include="HotDish.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderFunc.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

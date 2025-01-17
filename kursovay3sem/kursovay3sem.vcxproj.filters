@@ -59,6 +59,15 @@
     <ClInclude Include="Cafe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DiscountCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -101,6 +110,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cafe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiscountCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderFunc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

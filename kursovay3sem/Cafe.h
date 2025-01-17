@@ -8,13 +8,11 @@
 #include "Waiter.h"
 #include "Client.h"
 #include "OrderFunc.h"
-#include "Manager.h"
 #include <iostream>
 class Cafe
 {
 private:
 	Menu* menu;
-	Manager* manager;
 	Waiter* waiters = new Waiter[2];
 	int waitersNumb;
 	Chef* povara = new Chef[2];
@@ -28,12 +26,8 @@ public:
 		menu = new Menu;
 		waitersNumb = 0;
 		povaraNumb = 0;
-		tablesNumb = 0;
 		clientsNumb = 0;
 		currentClientsNumb = 0;
-	}
-	void addManager(Manager* manager) {
-		this->manager = manager;
 	}
 	void addHotDish(HotDish dish) {
 		menu->addHotDish(dish);
@@ -52,9 +46,6 @@ public:
 	}
 	void addPovar(Chef povar) {
 		povara[povaraNumb++] = povar;
-	}
-	void addTable(Table table) {
-		tables[tablesNumb++] = table;
 	}
 	void addNewClient() {
 		Client client1 = Client::getNewClient();
