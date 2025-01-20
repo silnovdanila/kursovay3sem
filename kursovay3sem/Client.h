@@ -10,8 +10,8 @@ private:
 	DiscountCard card;
 	Order currentOrder;
 public:
-	Client(std::string name) {
-		this->card = DiscountCard();
+	Client(std::string name, int idi) {
+		this->card = DiscountCard(idi);
 		this->name = name;
 	}
 	Client() = default;
@@ -19,14 +19,13 @@ public:
 		this->name = client.name;
 		this->currentOrder = client.currentOrder;
 		this->card = client.card;
-		this->card.newID();
 	}
-	static Client getNewClient() {
+	static Client getNewClient(int idi) {
 		std::cout << "\nWelcome to the cafe\nPlease, enter your name - ";
 		char s[80];
 		std::cin.ignore();
 		std::cin.getline(s, 80);
-		std::unique_ptr<Client> client(new Client(s));
+		std::unique_ptr<Client> client(new Client(s, idi));
 		return *client;
 	}
 	std::string getName() {

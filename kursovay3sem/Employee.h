@@ -1,6 +1,7 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include "iostream"
+
 class Employee abstract
 {
 protected:
@@ -21,5 +22,11 @@ public:
 	Employee() = default;
 	std::string getName() {
 		return this->name;
+	}
+	int getSalary() {
+		return this->salary;
+	}
+	std::string getJob() {
+		return this->job;
 	}
 };

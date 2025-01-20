@@ -9,25 +9,14 @@ private:
 	double discount;
 	Order* historyOForders = new Order[20];
 	int orders;
-	static int id;
+	int id;
 public:
-	DiscountCard() {
-		this->id++;
+	DiscountCard(int idi) {
+		this->id = idi;
 		this->discount = 0;
 		this->orders = 0;
 	}
-	DiscountCard(const DiscountCard& card) {
-		this->discount = card.discount;
-		this->id = id++;
-		this->orders = card.orders;
-		this->historyOForders = new Order[20];
-		for (int i = 0; i < this->orders; i++) {
-			this->historyOForders = &card.historyOForders[i];
-		}
-	}
-	void newID() {
-		this->id++;
-	}
+	DiscountCard() = default;
 	void getDiscount(double* discount) const {
 		*discount = this->discount;
 	}

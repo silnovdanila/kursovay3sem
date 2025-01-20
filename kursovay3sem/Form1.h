@@ -1,5 +1,8 @@
 #pragma once
+#include "Cafe.h"
+#include "AddEmpl.h"
 
+extern Cafe cafe;
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -184,6 +187,8 @@ namespace CppCLRWinFormsProject {
 		this->button4->Visible = true;
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		kursovay3sem::AddEmpl^ p = gcnew kursovay3sem::AddEmpl();
+		p->Show();
 	}
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -193,6 +198,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		this->button4->Visible = false;
 		this->button2->Visible = false;
 		this->button3->Visible = true;
+		this->label4->Visible = false;
 		this->label2->Text = L"Режим разработчика";
 		this->label2->ForeColor = System::Drawing::SystemColors::MenuHighlight;
 

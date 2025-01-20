@@ -65,7 +65,7 @@
     <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OrderFunc.h">
+    <ClInclude Include="AddEmpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -118,7 +118,7 @@
     <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OrderFunc.cpp">
+    <ClCompile Include="AddEmpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

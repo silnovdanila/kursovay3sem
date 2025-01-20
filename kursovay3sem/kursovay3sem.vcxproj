@@ -130,6 +130,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddEmpl.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Cafe.h" />
     <ClInclude Include="Chef.h" />
     <ClInclude Include="Client.h" />
@@ -144,12 +147,12 @@
     <ClInclude Include="HotDish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Order.h" />
-    <ClInclude Include="OrderFunc.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Waiter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddEmpl.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Cafe.cpp" />
     <ClCompile Include="Chef.cpp" />
@@ -164,7 +167,6 @@
     <ClCompile Include="HotDish.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Order.cpp" />
-    <ClCompile Include="OrderFunc.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -184,6 +186,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddEmpl.resx">
+      <DependentUpon>AddEmpl.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
