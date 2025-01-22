@@ -20,4 +20,10 @@ public:
             std::cout << this->name << "  " << this->price << "  " << this->weight << " gr";
         }
     }
+    int getWeight() {
+        return this->weight;
+    }
+    int getIsSugar() {
+        return this->isSugar;
+    }
 };

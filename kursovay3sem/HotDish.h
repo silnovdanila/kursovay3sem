@@ -13,4 +13,7 @@ public:
     void getDiscription() {
         std::cout << this->name << "  " << this->weight << " gr" << "  " << this->price;
     }
+    int getWeight() {
+        return this->weight;
+    }
 };

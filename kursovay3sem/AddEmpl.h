@@ -5,6 +5,7 @@
 
 extern Cafe cafe;
 
+
 namespace kursovay3sem {
 	
 	using namespace System;
@@ -13,7 +14,7 @@ namespace kursovay3sem {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	
 	/// <summary>
 	/// Сводка для AddEmpl
 	/// </summary>
@@ -83,13 +84,48 @@ namespace kursovay3sem {
 	private: System::Windows::Forms::Label^ deleteChefLabel;
 	private: System::Windows::Forms::Label^ deleteWaiterLabel;
 
-
-
-
-
-
-
-
+	private: static void saveTofile() {
+		FILE* f1;
+		f1 = fopen("cafe.txt", "w");
+		if (f1 != NULL) {
+			fprintf(f1, "%s ", Convert::ToString(cafe.getWaiterNumb()));
+			for (int i = 0; i < cafe.getWaiterNumb(); i++) {
+				fprintf(f1, "%s ", cafe.getWaiterName(i).c_str());
+				fprintf(f1, "%s ", Convert::ToString(cafe.getWaiterSalary(i)));
+				fprintf(f1, "%s ", cafe.getWaiterJob(i).c_str());
+			}
+			fprintf(f1, "%s ", Convert::ToString(cafe.getPovaraNumb()));
+			for (int i = 0; i < cafe.getPovaraNumb(); i++) {
+				fprintf(f1, "%s ", cafe.getPovarName(i).c_str());
+				fprintf(f1, "%s ", Convert::ToString(cafe.getPovarSalary(i)));
+				fprintf(f1, "%s ", cafe.getPovarJob(i).c_str());
+			}
+			fprintf(f1, "%s ", Convert::ToString(cafe.getHotDishesAmount()));
+			for (int i = 0; i < cafe.getHotDishesAmount(); i++) {
+				HotDish* dish = &cafe.getHotDish(i);
+				fprintf(f1, "%s ", dish->getName());
+				fprintf(f1, "%s ", Convert::ToString(dish->getPrice()));
+				fprintf(f1, "%s ", Convert::ToString(dish->getWeight()));
+			}
+			fprintf(f1, "%s ", Convert::ToString(cafe.getdessertAmount()));
+			for (int i = 0; i < cafe.getdessertAmount(); i++) {
+				Dessert* dish = &cafe.getdessert(i);
+				fprintf(f1, "%s ", dish->getName());
+				fprintf(f1, "%s ", Convert::ToString(dish->getPrice()));
+				fprintf(f1, "%s ", Convert::ToString(dish->getWeight()));
+				fprintf(f1, "%s ", Convert::ToString(dish->getIsSugar()));
+			}
+			fprintf(f1, "%s ", Convert::ToString(cafe.getdrinkAmount()));
+			for (int i = 0; i < cafe.getdrinkAmount(); i++) {
+				Drink* dish = &cafe.getdrink(i);
+				fprintf(f1, "%s ", dish->getName());
+				fprintf(f1, "%s ", Convert::ToString(dish->getPrice()));
+				fprintf(f1, "%s ", Convert::ToString(dish->getMl()));
+				fprintf(f1, "%s ", Convert::ToString(dish->getAlcohol()));
+			}
+			fclose(f1);
+		}
+	}
 
 	private:
 		/// <summary>
@@ -429,6 +465,7 @@ namespace kursovay3sem {
 			this->deleteWaiter->TabIndex = 24;
 			this->deleteWaiter->Text = L"Удалить";
 			this->deleteWaiter->UseVisualStyleBackColor = true;
+			this->deleteWaiter->Click += gcnew System::EventHandler(this, &AddEmpl::deleteWaiter_Click);
 			// 
 			// numbOFwaiter
 			// 
@@ -440,7 +477,7 @@ namespace kursovay3sem {
 			// deleteChefLabel
 			// 
 			this->deleteChefLabel->AutoSize = true;
-			this->deleteChefLabel->Location = System::Drawing::Point(362, 452);
+			this->deleteChefLabel->Location = System::Drawing::Point(341, 452);
 			this->deleteChefLabel->Name = L"deleteChefLabel";
 			this->deleteChefLabel->Size = System::Drawing::Size(64, 16);
 			this->deleteChefLabel->TabIndex = 25;
@@ -450,7 +487,7 @@ namespace kursovay3sem {
 			// deleteWaiterLabel
 			// 
 			this->deleteWaiterLabel->AutoSize = true;
-			this->deleteWaiterLabel->Location = System::Drawing::Point(914, 452);
+			this->deleteWaiterLabel->Location = System::Drawing::Point(889, 452);
 			this->deleteWaiterLabel->Name = L"deleteWaiterLabel";
 			this->deleteWaiterLabel->Size = System::Drawing::Size(64, 16);
 			this->deleteWaiterLabel->TabIndex = 26;
@@ -540,6 +577,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		this->addChefResultLabel->Text = L"Успешно";
 		this->addChefResultLabel->Visible = true;
 		this->AddEmpl_Activated(sender, e);
+		saveTofile();
 	}
 	else {
 		this->addChefResultLabel->Text = L"Неуспешно";
@@ -562,6 +600,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		this->addWaiterResultLabel->Text = L"Успешно";
 		this->addWaiterResultLabel->Visible = true;
 		this->AddEmpl_Activated(sender, e);
+		saveTofile();
 	}
 	else {
 		this->addWaiterResultLabel->Text = L"Неуспешно";
@@ -570,7 +609,40 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void deleteChef_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (this->numbOFchef->Text != L"") {
-
+		if (Convert::ToInt32(this->numbOFchef->Text) > 0 && Convert::ToInt32(this->numbOFchef->Text) <= cafe.getPovaraNumb()) {
+			cafe.deletePovar(Convert::ToInt32(this->numbOFchef->Text) - 1);
+			this->deleteChefLabel->Text = L"Успешно";
+			this->deleteChefLabel->Visible = true;
+			this->AddEmpl_Activated(sender, e);
+			saveTofile();
+		}
+		else{
+			this->deleteChefLabel->Text = L"Неуспешно";
+			this->deleteChefLabel->Visible = true;
+		}
+	}
+	else {
+		this->deleteChefLabel->Text = L"Неуспешно";
+		this->deleteChefLabel->Visible = true;
+	}
+}
+private: System::Void deleteWaiter_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->numbOFwaiter->Text != L"") {
+		if (Convert::ToInt32(this->numbOFwaiter->Text) > 0 && Convert::ToInt32(this->numbOFwaiter->Text) <= cafe.getWaiterNumb()) {
+			cafe.deleteWaiter(Convert::ToInt32(this->numbOFwaiter->Text) - 1);
+			this->deleteWaiterLabel->Text = L"Успешно";
+			this->deleteWaiterLabel->Visible = true;
+			this->AddEmpl_Activated(sender, e);
+			saveTofile();
+		}
+		else {
+			this->deleteWaiterLabel->Text = L"Неуспешно";
+			this->deleteWaiterLabel->Visible = true;
+		}
+	}
+	else {
+		this->deleteWaiterLabel->Text = L"Неуспешно";
+		this->deleteWaiterLabel->Visible = true;
 	}
 }
 };

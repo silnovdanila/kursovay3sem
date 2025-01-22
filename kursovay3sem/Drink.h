@@ -20,4 +20,10 @@ public:
             std::cout << this->name << "  " << this->alcohol << "% alcohol  " << this->ml << " ml  " << this->price;
         }
     }
+    int getMl() {
+        return this->ml;
+    }
+    int getAlcohol() {
+        return this->alcohol;
+    }
 };

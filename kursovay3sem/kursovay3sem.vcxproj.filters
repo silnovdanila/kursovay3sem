@@ -68,6 +68,15 @@
     <ClInclude Include="AddEmpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="chefsForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="changeMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="waitersForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -119,6 +128,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AddEmpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chefsForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="changeMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="waitersForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

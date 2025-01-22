@@ -5,6 +5,7 @@
 #include "Dessert.h"
 #include "Drink.h"
 #include <iostream>
+
 class Menu
 {
 private:
@@ -34,13 +35,13 @@ public:
 			this->drinks[i] = menu.drinks[i];
 		}
 	}
-	Dish getHotDish(int a) {
+	HotDish getHotDish(int a) {
 		return this->hotDishes[a];
 	}
-	Dish getdessert(int a) {
+	Dessert getdessert(int a) {
 		return this->desserts[a];
 	}
-	Dish getdrink(int a) {
+	Drink getdrink(int a) {
 		return this->drinks[a];
 	}
 	int getdessertAmount() {

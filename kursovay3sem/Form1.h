@@ -1,8 +1,14 @@
 #pragma once
 #include "Cafe.h"
 #include "AddEmpl.h"
+#include "changeMenu.h"
+#include "waitersForm.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 
 extern Cafe cafe;
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -31,7 +37,9 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ waitersButton;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
@@ -42,6 +50,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Button^ chefButton;
+	private: System::Windows::Forms::Button^ button1;
+
 
 	private:
 		System::ComponentModel::Container ^components;
@@ -49,7 +60,7 @@ namespace CppCLRWinFormsProject {
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->waitersButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -58,18 +69,106 @@ namespace CppCLRWinFormsProject {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->chefButton = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+
+			FILE* f1;
+			int k, l, m;
+			char s[40], s1[40], s2[40];
+			f1 = fopen("cafe.txt", "r");
+			if (f1 != NULL) {
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s2[i] = s[i];
+						s2[i + 1] = 0;
+					}
+					cafe.addWaiter(*new Waiter(s1, l, s2));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s2[i] = s[i];
+						s2[i + 1] = 0;
+					}
+					cafe.addPovar(*new Chef(s1, l, s2));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					cafe.addHotDish(*new HotDish(l, s1, m));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					fscanf(f1, "%s", s);
+					cafe.addDessert(*new Dessert(l, s1, m, atoi(s)));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					fscanf(f1, "%s", s);
+					cafe.addDrink(*new Drink(l, s1, m, atoi(s)));
+				}
+				fclose(f1);
+			}
 			// 
-			// button1
+			// waitersButton
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28));
-			this->button1->Location = System::Drawing::Point(325, 136);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(344, 175);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Сделать заказ";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			this->waitersButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26));
+			this->waitersButton->Location = System::Drawing::Point(502, 136);
+			this->waitersButton->Name = L"waitersButton";
+			this->waitersButton->Size = System::Drawing::Size(323, 175);
+			this->waitersButton->TabIndex = 0;
+			this->waitersButton->Text = L"Для официантов";
+			this->waitersButton->UseVisualStyleBackColor = true;
+			this->waitersButton->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// label1
 			// 
@@ -108,9 +207,9 @@ namespace CppCLRWinFormsProject {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8));
 			this->button3->Location = System::Drawing::Point(844, 326);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(117, 50);
+			this->button3->Size = System::Drawing::Size(117, 63);
 			this->button3->TabIndex = 5;
-			this->button3->Text = L"Режим рахработчика";
+			this->button3->Text = L"Изменить рабочий состав";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Visible = false;
 			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
@@ -154,11 +253,35 @@ namespace CppCLRWinFormsProject {
 			this->label4->Text = L"Пароль неверный";
 			this->label4->Visible = false;
 			// 
+			// chefButton
+			// 
+			this->chefButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26));
+			this->chefButton->Location = System::Drawing::Point(170, 136);
+			this->chefButton->Name = L"chefButton";
+			this->chefButton->Size = System::Drawing::Size(287, 175);
+			this->chefButton->TabIndex = 10;
+			this->chefButton->Text = L"Для поваров";
+			this->chefButton->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8));
+			this->button1->Location = System::Drawing::Point(844, 403);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(117, 63);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"Изменить меню";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Visible = false;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click_1);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1014, 536);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->chefButton);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox1);
@@ -167,7 +290,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->waitersButton);
 			this->Name = L"Form1";
 			this->Text = L"Cafe";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -179,7 +302,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		kursovay3sem::waitersForm^ p = gcnew kursovay3sem::waitersForm();
+		p->Show();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->textBox1->Visible = true;
@@ -191,21 +315,24 @@ namespace CppCLRWinFormsProject {
 		p->Show();
 	}
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-
 	if (this->textBox1->Text == L"1111") {
 		this->textBox1->Visible = false;
 		this->label3->Visible = false;
 		this->button4->Visible = false;
 		this->button2->Visible = false;
 		this->button3->Visible = true;
+		this->button1->Visible = true;
 		this->label4->Visible = false;
 		this->label2->Text = L"Режим разработчика";
 		this->label2->ForeColor = System::Drawing::SystemColors::MenuHighlight;
-
 	}
 	else {
 		this->label4->Visible = true;
 	}
+}
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	kursovay3sem::changeMenu^ p = gcnew kursovay3sem::changeMenu();
+	p->Show();
 }
 };
 }
