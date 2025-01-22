@@ -39,15 +39,15 @@ namespace kursovay3sem {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label2;
+
 	protected:
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::DataGridView^ chefs;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ numbOForder;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nameOFclient;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nameOFwaiter;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dishes;
+
+
+
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::DataGridView^ drinks;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nameOFdrink;
@@ -67,6 +67,36 @@ namespace kursovay3sem {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ priceOFdish;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ weightOFdish;
 
+
+
+
+
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::TextBox^ nameOFclientBox;
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ doOrderLabel;
+	private: System::Windows::Forms::TextBox^ numbOForderBox;
+
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::TextBox^ numbOForderTOcloseBox;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ closeOrderLabel;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ numbOForder;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nameOFclient;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ priceOForder;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ readyORnot;
+
+
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -80,14 +110,8 @@ namespace kursovay3sem {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->chefs = (gcnew System::Windows::Forms::DataGridView());
-			this->numbOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->nameOFclient = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->nameOFwaiter = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dishes = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->drinks = (gcnew System::Windows::Forms::DataGridView());
 			this->nameOFdrink = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -106,34 +130,34 @@ namespace kursovay3sem {
 			this->nameOFdish = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->priceOFdish = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->weightOFdish = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->nameOFclientBox = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->doOrderLabel = (gcnew System::Windows::Forms::Label());
+			this->numbOForderBox = (gcnew System::Windows::Forms::TextBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->numbOForderTOcloseBox = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->closeOrderLabel = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->numbOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->nameOFclient = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->priceOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->readyORnot = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chefs))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->drinks))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->desserts))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->hotdishes))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(1012, 15);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(75, 16);
-			this->label2->TabIndex = 8;
-			this->label2->Text = L"Официант";
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(1015, 45);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
-			this->comboBox1->TabIndex = 7;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label1->Location = System::Drawing::Point(634, 36);
+			this->label1->Location = System::Drawing::Point(572, 41);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(156, 25);
 			this->label1->TabIndex = 6;
@@ -149,39 +173,15 @@ namespace kursovay3sem {
 			this->chefs->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->chefs->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->numbOForder, this->nameOFclient,
-					this->nameOFwaiter, this->dishes
+					this->priceOForder, this->readyORnot
 			});
-			this->chefs->Location = System::Drawing::Point(639, 75);
+			this->chefs->Location = System::Drawing::Point(577, 75);
 			this->chefs->Name = L"chefs";
 			this->chefs->RowHeadersVisible = false;
 			this->chefs->RowHeadersWidth = 51;
 			this->chefs->RowTemplate->Height = 24;
-			this->chefs->Size = System::Drawing::Size(497, 236);
+			this->chefs->Size = System::Drawing::Size(670, 259);
 			this->chefs->TabIndex = 5;
-			// 
-			// numbOForder
-			// 
-			this->numbOForder->HeaderText = L"Номер заказа";
-			this->numbOForder->MinimumWidth = 6;
-			this->numbOForder->Name = L"numbOForder";
-			// 
-			// nameOFclient
-			// 
-			this->nameOFclient->HeaderText = L"Имя клиента";
-			this->nameOFclient->MinimumWidth = 6;
-			this->nameOFclient->Name = L"nameOFclient";
-			// 
-			// nameOFwaiter
-			// 
-			this->nameOFwaiter->HeaderText = L"Имя официанта";
-			this->nameOFwaiter->MinimumWidth = 6;
-			this->nameOFwaiter->Name = L"nameOFwaiter";
-			// 
-			// dishes
-			// 
-			this->dishes->HeaderText = L"Блюда";
-			this->dishes->MinimumWidth = 6;
-			this->dishes->Name = L"dishes";
 			// 
 			// label4
 			// 
@@ -346,11 +346,170 @@ namespace kursovay3sem {
 			this->weightOFdish->MinimumWidth = 6;
 			this->weightOFdish->Name = L"weightOFdish";
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->label2->Location = System::Drawing::Point(579, 351);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(149, 25);
+			this->label2->TabIndex = 16;
+			this->label2->Text = L"Сделать заказ";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+			this->label7->Location = System::Drawing::Point(574, 385);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(157, 18);
+			this->label7->TabIndex = 17;
+			this->label7->Text = L"Введите имя клиента";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(790, 462);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(151, 24);
+			this->button1->TabIndex = 18;
+			this->button1->Text = L"Сделать заказ";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &waitersForm::button1_Click);
+			// 
+			// nameOFclientBox
+			// 
+			this->nameOFclientBox->Location = System::Drawing::Point(577, 422);
+			this->nameOFclientBox->Name = L"nameOFclientBox";
+			this->nameOFclientBox->Size = System::Drawing::Size(151, 22);
+			this->nameOFclientBox->TabIndex = 19;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+			this->label8->Location = System::Drawing::Point(758, 385);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(183, 18);
+			this->label8->TabIndex = 20;
+			this->label8->Text = L"Введите номера позиций";
+			// 
+			// doOrderLabel
+			// 
+			this->doOrderLabel->AutoSize = true;
+			this->doOrderLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+			this->doOrderLabel->Location = System::Drawing::Point(577, 462);
+			this->doOrderLabel->Name = L"doOrderLabel";
+			this->doOrderLabel->Size = System::Drawing::Size(70, 18);
+			this->doOrderLabel->TabIndex = 21;
+			this->doOrderLabel->Text = L"Успешно";
+			this->doOrderLabel->Visible = false;
+			// 
+			// numbOForderBox
+			// 
+			this->numbOForderBox->Location = System::Drawing::Point(761, 421);
+			this->numbOForderBox->Name = L"numbOForderBox";
+			this->numbOForderBox->Size = System::Drawing::Size(180, 22);
+			this->numbOForderBox->TabIndex = 22;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->label9->Location = System::Drawing::Point(1010, 351);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(149, 25);
+			this->label9->TabIndex = 23;
+			this->label9->Text = L"Закрыть заказ";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(1015, 462);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(144, 23);
+			this->button2->TabIndex = 24;
+			this->button2->Text = L"Закрыть заказ";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// numbOForderTOcloseBox
+			// 
+			this->numbOForderTOcloseBox->Location = System::Drawing::Point(1015, 421);
+			this->numbOForderTOcloseBox->Name = L"numbOForderTOcloseBox";
+			this->numbOForderTOcloseBox->Size = System::Drawing::Size(144, 22);
+			this->numbOForderTOcloseBox->TabIndex = 25;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+			this->label10->Location = System::Drawing::Point(1012, 385);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(166, 18);
+			this->label10->TabIndex = 26;
+			this->label10->Text = L"Введите номер заказа";
+			// 
+			// closeOrderLabel
+			// 
+			this->closeOrderLabel->AutoSize = true;
+			this->closeOrderLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+			this->closeOrderLabel->Location = System::Drawing::Point(1198, 462);
+			this->closeOrderLabel->Name = L"closeOrderLabel";
+			this->closeOrderLabel->Size = System::Drawing::Size(70, 18);
+			this->closeOrderLabel->TabIndex = 27;
+			this->closeOrderLabel->Text = L"Успешно";
+			this->closeOrderLabel->Visible = false;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7));
+			this->label11->Location = System::Drawing::Point(758, 403);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(86, 15);
+			this->label11->TabIndex = 28;
+			this->label11->Text = L"Пример: 2 3 1";
+			// 
+			// numbOForder
+			// 
+			this->numbOForder->HeaderText = L"Номер заказа";
+			this->numbOForder->MinimumWidth = 6;
+			this->numbOForder->Name = L"numbOForder";
+			// 
+			// nameOFclient
+			// 
+			this->nameOFclient->HeaderText = L"Имя клиента";
+			this->nameOFclient->MinimumWidth = 6;
+			this->nameOFclient->Name = L"nameOFclient";
+			// 
+			// priceOForder
+			// 
+			this->priceOForder->HeaderText = L"Цена заказа";
+			this->priceOForder->MinimumWidth = 6;
+			this->priceOForder->Name = L"priceOForder";
+			// 
+			// readyORnot
+			// 
+			this->readyORnot->HeaderText = L"Готовность";
+			this->readyORnot->MinimumWidth = 6;
+			this->readyORnot->Name = L"readyORnot";
+			// 
 			// waitersForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1148, 571);
+			this->ClientSize = System::Drawing::Size(1288, 514);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->closeOrderLabel);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->numbOForderTOcloseBox);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->numbOForderBox);
+			this->Controls->Add(this->doOrderLabel);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->nameOFclientBox);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->drinks);
 			this->Controls->Add(this->label3);
@@ -358,8 +517,6 @@ namespace kursovay3sem {
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->hotdishes);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->chefs);
 			this->Name = L"waitersForm";
@@ -375,13 +532,10 @@ namespace kursovay3sem {
 		}
 #pragma endregion
 		private: System::Void AddEmpl_Activated(System::Object^ sender, System::EventArgs^ e) {
-			this->comboBox1->Items->Clear();
-			for (int i = 0; i < cafe.getWaiterNumb(); i++) {
-				this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(1) { gcnew System::String(cafe.getWaiterName(i).c_str()) });
-			}
 			while (0 != hotdishes->RowCount) hotdishes->Rows->RemoveAt(0);
 			while (0 != desserts->RowCount) desserts->Rows->RemoveAt(0);
 			while (0 != drinks->RowCount) drinks->Rows->RemoveAt(0);
+			while (0 != chefs->RowCount) chefs->Rows->RemoveAt(0);
 			for (int i = 0; i < cafe.getHotDishesAmount(); i++) {
 				hotdishes->Rows->Add();
 				HotDish dish = cafe.getHotDish(i);
@@ -405,6 +559,68 @@ namespace kursovay3sem {
 				drinks->Rows[i]->Cells[2]->Value = Convert::ToString(dish.getMl());
 				drinks->Rows[i]->Cells[3]->Value = Convert::ToString(dish.getAlcohol());
 			}
+			for (int i = 0; i < cafe.getClientsNumb(); i++) {
+				chefs->Rows->Add();
+				Client client = cafe.getCurrentClient(i);
+				chefs->Rows[i]->Cells[0]->Value = Convert::ToString(i + 1);
+				chefs->Rows[i]->Cells[1]->Value = gcnew System::String(client.getName().c_str());
+				chefs->Rows[i]->Cells[2]->Value = Convert::ToString(client.getPrice());
+				chefs->Rows[i]->Cells[3]->Value = Convert::ToString(client.getPrepared());
+			}
 		}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->nameOFclientBox->Text != L"" && this->numbOForderBox->Text != L"") {
+			int m, i = 0, dish = 0;
+			Order* newOrder = new Order;
+			System::String ^s = this->numbOForderBox->Text, ^sum;
+			while (i < s->Length) {
+				if (s[i] == ' ') {
+					m = Convert::ToInt32(sum);
+					if (m <= cafe.getHotDishesAmount()) {
+						newOrder += cafe.getHotDish(m - 1);
+					}
+					else if (m <= cafe.getHotDishesAmount() + cafe.getdessertAmount()) {
+						newOrder += cafe.getdessert(m - cafe.getHotDishesAmount() - 1);
+					}
+					else {
+						newOrder += cafe.getdrink(m - cafe.getHotDishesAmount() - cafe.getdessertAmount() - 1);
+					}
+					dish += 1;
+					sum = "";
+				}
+				else {
+					sum += s[i];
+				}
+				i++;
+			}
+			std::string a = "";
+			for (int i = 0; i < this->nameOFclientBox->Text->Length; i++) {
+				a += this->nameOFclientBox->Text[i];
+			}
+			int f = 0;
+			Client* client;
+			for (int i = 0; i < cafe.getClientsNumb(); i++) {
+				if (cafe.getClientsName(i) == a) {
+					f = 1;
+					client = &cafe.getClient(i);
+					break;
+				}
+			}
+			if (!f) {
+				client = new Client(a, 1);
+				cafe.addClient(*client);
+			}
+			client->setOrder(*newOrder);
+			cafe.addCurrentClient(*client);
+			this->doOrderLabel->Visible = true;
+			this->AddEmpl_Activated(sender, e);
+			this->doOrderLabel->Text = L"Успешно";
+		}
+		else {
+			this->doOrderLabel->Visible = true;
+			this->doOrderLabel->Text = L"Неуспешно";
+		}
+
+	}
+};
 }

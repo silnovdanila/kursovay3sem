@@ -7,9 +7,11 @@ class Order
 private:
 	Dish* order = new Dish[20];
 	int dishes;
+	int prepared;
 public:
 	Order() {
 		this->dishes = 0;
+		prepared = 0;
 	}
 	Order(const Order& order) {
 		this->dishes = order.dishes;
@@ -20,14 +22,21 @@ public:
 	void addDish(Dish dish) {
 		this->order[this->dishes++] = dish;
 	}
-	void orderSum(int& sum) {
-		sum = 0;
-		printf("\nYour order: ");
+	int getPrepared() {
+		return this->prepared;
+	}
+	int getPrice() {
+		int sum = 0;
 		for (int i = 0; i < dishes; i++) {
-			if (i != dishes - 1) { std::cout << this->order[i].getName() + ", "; }
-			else { std::cout << this->order[i].getName(); }
 			sum += this->order[i].getPrice();
 		}
+		return sum;
+	}
+	std::string getNameOFdish(int a) {
+		return order[a].getName();
+	}
+	int getPriceOFdish(int a) {
+		return order[a].getPrice();
 	}
 	friend Order operator+(Order order, Dish dish) {
 		order.order[order.dishes++] = dish;

@@ -25,6 +25,24 @@ public:
 		clientsNumb = 0;
 		currentClientsNumb = 0;
 	}
+	Client getCurrentClient(int index) {
+		return currentClients[index];
+	}
+	void addCurrentClient(Client client) {
+		currentClients[currentClientsNumb++] = client;
+	}
+	void addClient(Client client) {
+		clients[clientsNumb++] = client;
+	}
+	Client getClient(int a) {
+		return clients[a];
+	}
+	int getClientsNumb() {
+		return clientsNumb;
+	}
+	std::string getClientsName(int a) {
+		return clients[a].getName();
+	}
 	HotDish getHotDish(int a) {
 		return this->menu->getHotDish(a);
 	}
