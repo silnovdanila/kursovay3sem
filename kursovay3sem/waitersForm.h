@@ -89,7 +89,13 @@ namespace kursovay3sem {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ numbOForder;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ nameOFclient;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ priceOForder;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ positions;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ readyORnot;
+	private: System::Windows::Forms::Button^ button3;
+
+
+
+
 
 
 
@@ -112,6 +118,11 @@ namespace kursovay3sem {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->chefs = (gcnew System::Windows::Forms::DataGridView());
+			this->numbOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->nameOFclient = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->priceOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->positions = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->readyORnot = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->drinks = (gcnew System::Windows::Forms::DataGridView());
 			this->nameOFdrink = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -143,10 +154,7 @@ namespace kursovay3sem {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->closeOrderLabel = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->numbOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->nameOFclient = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->priceOForder = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->readyORnot = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chefs))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->drinks))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->desserts))->BeginInit();
@@ -171,9 +179,9 @@ namespace kursovay3sem {
 			this->chefs->AllowUserToResizeRows = false;
 			this->chefs->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->chefs->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->chefs->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->chefs->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->numbOForder, this->nameOFclient,
-					this->priceOForder, this->readyORnot
+					this->priceOForder, this->positions, this->readyORnot
 			});
 			this->chefs->Location = System::Drawing::Point(577, 75);
 			this->chefs->Name = L"chefs";
@@ -182,6 +190,36 @@ namespace kursovay3sem {
 			this->chefs->RowTemplate->Height = 24;
 			this->chefs->Size = System::Drawing::Size(670, 259);
 			this->chefs->TabIndex = 5;
+			// 
+			// numbOForder
+			// 
+			this->numbOForder->HeaderText = L"Номер заказа";
+			this->numbOForder->MinimumWidth = 6;
+			this->numbOForder->Name = L"numbOForder";
+			// 
+			// nameOFclient
+			// 
+			this->nameOFclient->HeaderText = L"Имя клиента";
+			this->nameOFclient->MinimumWidth = 6;
+			this->nameOFclient->Name = L"nameOFclient";
+			// 
+			// priceOForder
+			// 
+			this->priceOForder->HeaderText = L"Цена заказа";
+			this->priceOForder->MinimumWidth = 6;
+			this->priceOForder->Name = L"priceOForder";
+			// 
+			// positions
+			// 
+			this->positions->HeaderText = L"Позиции заказа";
+			this->positions->MinimumWidth = 6;
+			this->positions->Name = L"positions";
+			// 
+			// readyORnot
+			// 
+			this->readyORnot->HeaderText = L"Готовность";
+			this->readyORnot->MinimumWidth = 6;
+			this->readyORnot->Name = L"readyORnot";
 			// 
 			// label4
 			// 
@@ -429,6 +467,7 @@ namespace kursovay3sem {
 			this->button2->TabIndex = 24;
 			this->button2->Text = L"Закрыть заказ";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &waitersForm::button2_Click);
 			// 
 			// numbOForderTOcloseBox
 			// 
@@ -468,35 +507,23 @@ namespace kursovay3sem {
 			this->label11->TabIndex = 28;
 			this->label11->Text = L"Пример: 2 3 1";
 			// 
-			// numbOForder
+			// button3
 			// 
-			this->numbOForder->HeaderText = L"Номер заказа";
-			this->numbOForder->MinimumWidth = 6;
-			this->numbOForder->Name = L"numbOForder";
-			// 
-			// nameOFclient
-			// 
-			this->nameOFclient->HeaderText = L"Имя клиента";
-			this->nameOFclient->MinimumWidth = 6;
-			this->nameOFclient->Name = L"nameOFclient";
-			// 
-			// priceOForder
-			// 
-			this->priceOForder->HeaderText = L"Цена заказа";
-			this->priceOForder->MinimumWidth = 6;
-			this->priceOForder->Name = L"priceOForder";
-			// 
-			// readyORnot
-			// 
-			this->readyORnot->HeaderText = L"Готовность";
-			this->readyORnot->MinimumWidth = 6;
-			this->readyORnot->Name = L"readyORnot";
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->button3->Location = System::Drawing::Point(1105, 20);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(142, 46);
+			this->button3->TabIndex = 29;
+			this->button3->Text = L"Обновить";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &waitersForm::button3_Click);
 			// 
 			// waitersForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1288, 514);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->closeOrderLabel);
 			this->Controls->Add(this->label10);
@@ -559,13 +586,14 @@ namespace kursovay3sem {
 				drinks->Rows[i]->Cells[2]->Value = Convert::ToString(dish.getMl());
 				drinks->Rows[i]->Cells[3]->Value = Convert::ToString(dish.getAlcohol());
 			}
-			for (int i = 0; i < cafe.getClientsNumb(); i++) {
+			for (int i = 0; i < cafe.getCurrentClientNumb(); i++) {
 				chefs->Rows->Add();
 				Client client = cafe.getCurrentClient(i);
 				chefs->Rows[i]->Cells[0]->Value = Convert::ToString(i + 1);
 				chefs->Rows[i]->Cells[1]->Value = gcnew System::String(client.getName().c_str());
 				chefs->Rows[i]->Cells[2]->Value = Convert::ToString(client.getPrice());
-				chefs->Rows[i]->Cells[3]->Value = Convert::ToString(client.getPrepared());
+				chefs->Rows[i]->Cells[3]->Value = gcnew System::String(client.getCurrentOrderPositions().c_str());
+				chefs->Rows[i]->Cells[4]->Value = Convert::ToString(client.getPrepared());
 			}
 		}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -603,15 +631,19 @@ namespace kursovay3sem {
 				if (cafe.getClientsName(i) == a) {
 					f = 1;
 					client = &cafe.getClient(i);
+					client->setOrder(*newOrder);
+					cafe.addCurrentClient(*client);
 					break;
 				}
 			}
 			if (!f) {
 				client = new Client(a, 1);
 				cafe.addClient(*client);
+				client->setOrder(*newOrder);
+				cafe.addCurrentClient(*client);
+				delete client;
 			}
-			client->setOrder(*newOrder);
-			cafe.addCurrentClient(*client);
+			delete newOrder;
 			this->doOrderLabel->Visible = true;
 			this->AddEmpl_Activated(sender, e);
 			this->doOrderLabel->Text = L"Успешно";
@@ -622,5 +654,20 @@ namespace kursovay3sem {
 		}
 
 	}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->numbOForderTOcloseBox->Text != L"") {
+		cafe.deleteCurrentClient(Convert::ToInt32(this->numbOForderTOcloseBox->Text) - 1);
+		this->closeOrderLabel->Text = L"Успешно";
+		this->closeOrderLabel->Visible = true;
+		this->AddEmpl_Activated(sender, e);
+	}
+	else {
+		this->closeOrderLabel->Visible = true;
+		this->closeOrderLabel->Text = L"Неуспешно";
+	}
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->AddEmpl_Activated(sender, e);
+}
 };
 }

@@ -98,30 +98,4 @@ public:
 	void addDrink(Drink dish) {
 		drinks[drinkAmount++] = dish;
 	}
-	void menuOut() {
-		if (this->hotDishAmount != 0) {
-			std::cout << "\n\n\tMENU\nHot Dishes:\n";
-			for (int i = 0; i < this->hotDishAmount; i++) {
-				std::cout << i + 1 << " - ";
-				this->hotDishes[i].getDiscription();
-				std::cout << '\n';
-			}
-		}
-		if (this->dessertAmount != 0) {
-			std::cout << "\nDesserts:\n";
-			for (int i = 0; i < this->dessertAmount; i++) {
-				std::cout << i + 1 + this->hotDishAmount << " - ";
-				this->desserts[i].getDiscription();
-				std::cout << '\n';
-			}
-		}
-		if (this->drinkAmount != 0) {
-			std::cout << "\nDrinks:\n";
-			for (int i = 0; i < this->drinkAmount; i++) {
-				std::cout << i + 1 + this->hotDishAmount + this->dessertAmount << " - ";
-				this->drinks[i].getDiscription();
-				std::cout << '\n';
-			}
-		}
-	}
 };

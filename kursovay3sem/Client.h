@@ -15,13 +15,21 @@ public:
 		this->name = name;
 	}
 	Client() = default;
+	void setPrepared(int a) {
+		this->currentOrder.setPrepared(a);
+	}
 	Client(const Client& client) {
 		this->name = client.name;
 		this->currentOrder = client.currentOrder;
 		this->card = client.card;
 	}
+	std::string getCurrentOrderPositions() {
+		return currentOrder.getOrderPositions();
+	}
 	int getPrice() {
-		return this->currentOrder.getPrice();
+		int m = this->currentOrder.getPrice() * (1 - card.getDiscount());
+		card.setDiscount(card.getNewDiscount(card.getDiscount()));
+		return m;
 	}
 	int getPrepared() {
 		return currentOrder.getPrepared();
@@ -31,9 +39,5 @@ public:
 	}
 	void setOrder(Order order) {
 		this->currentOrder = order;
-	}
-	void addHistory() {
-		this->card.setDiscount(this->card.getNewDiscount(this->card.getDiscount()));
-		this->card.addTOhistoryOForders(this->currentOrder);
 	}
 };

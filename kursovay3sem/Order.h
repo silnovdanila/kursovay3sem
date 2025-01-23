@@ -19,6 +19,17 @@ public:
 			this->order[i] = order.order[i];
 		}
 	}
+	void setPrepared(int a) {
+		this->prepared = 1;
+	}
+	std::string getOrderPositions() {
+		std::string s = "";
+		for (int i = 0; i < dishes; i++) {
+			s += order[i].getName();
+			s += " ";
+		}
+		return s;
+	}
 	void addDish(Dish dish) {
 		this->order[this->dishes++] = dish;
 	}

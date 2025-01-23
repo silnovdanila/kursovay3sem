@@ -7,7 +7,6 @@ class DiscountCard
 {
 private:
 	double discount;
-	Order* historyOForders = new Order[20];
 	int orders;
 	int id;
 public:
@@ -34,28 +33,5 @@ public:
 			return 0.1;
 		}
 		return discount += 0.01;
-	}
-	void addTOhistoryOForders(Order newOrder) {
-		this->historyOForders[this->orders++] = newOrder;
-	}
-	friend DiscountCard operator+(DiscountCard card, Order order) {
-		card.historyOForders[card.orders] = order;
-		card.orders += 1;
-		return card;
-	}
-	friend DiscountCard operator+=(DiscountCard card, Order order) {
-		card.historyOForders[card.orders] = order;
-		card.orders += 1;
-		return card;
-	}
-	friend DiscountCard* operator+(DiscountCard* card, Order order) {
-		card->historyOForders[card->orders] = order;
-		card->orders += 1;
-		return card;
-	}
-	friend DiscountCard* operator+=(DiscountCard* card, Order order) {
-		card->historyOForders[card->orders] = order;
-		card->orders += 1;
-		return card;
 	}
 };

@@ -25,6 +25,12 @@ public:
 		clientsNumb = 0;
 		currentClientsNumb = 0;
 	}
+	void setPrepared(int index) {
+		this->currentClients->setPrepared(1);
+	}
+	int getCurrentClientNumb() {
+		return currentClientsNumb;
+	}
 	Client getCurrentClient(int index) {
 		return currentClients[index];
 	}
@@ -128,8 +134,12 @@ public:
 		}
 		povaraNumb -= 1;
 	}
-	void addNewClient(int idi) {
-		Client client1 = Client::getNewClient(idi);
-		clients[clientsNumb] = client1;
+	void deleteCurrentClient(int idi) {
+		for (int i = 0; i < currentClientsNumb - 1; i++) {
+			if (i >= idi) {
+				currentClients[i] = currentClients[i + 1];
+			}
+		}
+		currentClientsNumb -= 1;
 	}
 };

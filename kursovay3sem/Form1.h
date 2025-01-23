@@ -3,6 +3,7 @@
 #include "AddEmpl.h"
 #include "changeMenu.h"
 #include "waitersForm.h"
+#include "chefsForm.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -72,92 +73,6 @@ namespace CppCLRWinFormsProject {
 			this->chefButton = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
-
-			FILE* f1;
-			int k, l, m;
-			char s[40], s1[40], s2[40];
-			f1 = fopen("cafe.txt", "r");
-			if (f1 != NULL) {
-				fscanf(f1, "%s", s);
-				k = atoi(s);
-				for (int i = 0; i < k; i++) {
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s1[i] = s[i];
-						s1[i + 1] = 0;
-					}
-					fscanf(f1, "%s", s);
-					l = atoi(s);
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s2[i] = s[i];
-						s2[i + 1] = 0;
-					}
-					cafe.addWaiter(*new Waiter(s1, l, s2));
-				}
-				fscanf(f1, "%s", s);
-				k = atoi(s);
-				for (int i = 0; i < k; i++) {
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s1[i] = s[i];
-						s1[i + 1] = 0;
-					}
-					fscanf(f1, "%s", s);
-					l = atoi(s);
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s2[i] = s[i];
-						s2[i + 1] = 0;
-					}
-					cafe.addPovar(*new Chef(s1, l, s2));
-				}
-				fscanf(f1, "%s", s);
-				k = atoi(s);
-				for (int i = 0; i < k; i++) {
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s1[i] = s[i];
-						s1[i + 1] = 0;
-					}
-					fscanf(f1, "%s", s);
-					l = atoi(s);
-					fscanf(f1, "%s", s);
-					m = atoi(s);
-					cafe.addHotDish(*new HotDish(l, s1, m));
-				}
-				fscanf(f1, "%s", s);
-				k = atoi(s);
-				for (int i = 0; i < k; i++) {
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s1[i] = s[i];
-						s1[i + 1] = 0;
-					}
-					fscanf(f1, "%s", s);
-					l = atoi(s);
-					fscanf(f1, "%s", s);
-					m = atoi(s);
-					fscanf(f1, "%s", s);
-					cafe.addDessert(*new Dessert(l, s1, m, atoi(s)));
-				}
-				fscanf(f1, "%s", s);
-				k = atoi(s);
-				for (int i = 0; i < k; i++) {
-					fscanf(f1, "%s", s);
-					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
-						s1[i] = s[i];
-						s1[i + 1] = 0;
-					}
-					fscanf(f1, "%s", s);
-					l = atoi(s);
-					fscanf(f1, "%s", s);
-					m = atoi(s);
-					fscanf(f1, "%s", s);
-					cafe.addDrink(*new Drink(l, s1, m, atoi(s)));
-				}
-				fclose(f1);
-			}
 			// 
 			// waitersButton
 			// 
@@ -262,6 +177,7 @@ namespace CppCLRWinFormsProject {
 			this->chefButton->TabIndex = 10;
 			this->chefButton->Text = L"Для поваров";
 			this->chefButton->UseVisualStyleBackColor = true;
+			this->chefButton->Click += gcnew System::EventHandler(this, &Form1::chefButton_Click);
 			// 
 			// button1
 			// 
@@ -277,6 +193,91 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Form1
 			// 
+			FILE* f1;
+			int k, l, m;
+			char s[40], s1[40], s2[40];
+			f1 = fopen("cafe.txt", "r");
+			if (f1 != NULL) {
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s2[i] = s[i];
+						s2[i + 1] = 0;
+					}
+					cafe.addWaiter(*new Waiter(s1, l, s2));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s2[i] = s[i];
+						s2[i + 1] = 0;
+					}
+					cafe.addPovar(*new Chef(s1, l, s2));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					cafe.addHotDish(*new HotDish(l, s1, m));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					fscanf(f1, "%s", s);
+					cafe.addDessert(*new Dessert(l, s1, m, atoi(s)));
+				}
+				fscanf(f1, "%s", s);
+				k = atoi(s);
+				for (int i = 0; i < k; i++) {
+					fscanf(f1, "%s", s);
+					for (int i = 0; s[i] != 0 && s[i] != ' '; i++) {
+						s1[i] = s[i];
+						s1[i + 1] = 0;
+					}
+					fscanf(f1, "%s", s);
+					l = atoi(s);
+					fscanf(f1, "%s", s);
+					m = atoi(s);
+					fscanf(f1, "%s", s);
+					cafe.addDrink(*new Drink(l, s1, m, atoi(s)));
+				}
+				fclose(f1);
+			}
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1014, 536);
@@ -332,6 +333,10 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	kursovay3sem::changeMenu^ p = gcnew kursovay3sem::changeMenu();
+	p->Show();
+}
+private: System::Void chefButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	kursovay3sem::chefsForm^ p = gcnew kursovay3sem::chefsForm();
 	p->Show();
 }
 };
